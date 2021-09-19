@@ -29,7 +29,7 @@ fn handle_client(client_connection: TcpStream) {
     // Accepting the first data received as username for the client: 
     let mut username_buffer = String::new();
     data_receive.read_line(&mut username_buffer).unwrap();
-    let username = username_buffer.strip_suffix("\r\n").unwrap();
+    let username = username_buffer.trim();
 
     // Creating a loop to keep listening for data sent by the client: 
     loop {
